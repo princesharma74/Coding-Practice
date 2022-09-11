@@ -49,8 +49,8 @@ int main(){
         }
     }
 
-    long long ans = (by - ay)*(bx - ax); 
-    ans = ans < 0 ? 0 : ans; 
+    int ans = (ay - by)*(ax - bx); 
+    ans = ((ay - by) < 0) || (ax - bx) < 0 ? 0 : ans; 
     cout << ans; 
 
     return 0; 
