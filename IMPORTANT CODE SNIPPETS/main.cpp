@@ -29,7 +29,17 @@ int primeAhead(int n){
     return n; 
 }
 
+void StoreGraphAdj(int N, int M){
+    vector<vector<int>> g(N+1);
+    for(int i = 0; i < M; i++){
+        int v1, v2; 
+        cin >> v1 >> v2; 
+        g[v1].push_back(v2);
+        g[v2].push_back(v1);
+    }
+}
+
 int main(){
-    
+
     return 0;
 }

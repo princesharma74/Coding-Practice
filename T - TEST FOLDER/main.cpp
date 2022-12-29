@@ -1,33 +1,31 @@
-#include <bits/stdc++.h>
-using namespace std; 
-
-int anagram(string s){
-    int x=s.size(),count=0;
-    if(x%2==1){
-        return -1;
+#include <stdio.h>
+#include <stdlib.h>
+int main()
+{
+    FILE *fp;
+    char ch;
+    fp = fopen("manit.txt", "w");
+    if (fp == NULL)
+    {
+        printf("File does not exists ");
+        exit(0);
     }
-    else {
-        for(int i=0;i<x/2;i++){
-            for(int j=x/2;j<x;j++){
-                if(s[i]==s[j]){
-                    s[j]=0;
-                    count++;
-                    break;
-                }
-            }
-            
-        }
-        return ((x/2)-count);
+    printf("Enter data to write into file");
+    while ((ch = getchar()) != EOF)
+    {
+        fputc(ch, fp);
     }
-}
-
-int main(){
-    int t;
-    cin >> t; 
-    while(t--){
-        string s; 
-        cin >> s; 
-        cout << anagram(s) << endl;
+    fclose(fp);
+    fp = fopen("manit.txt", "r");
+    if (fp == NULL)
+    {
+        printf("File does not exists ");
+        exit(0);
     }
+    while ((ch = fgetc(fp)) != EOF)
+    {
+        printf("%c", ch);
+    }
+    fclose(fp);
     return 0;
 }

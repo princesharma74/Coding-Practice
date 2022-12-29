@@ -1,0 +1,7 @@
+3
+4
+abab
+6
+abccda
+4
+aaaa
