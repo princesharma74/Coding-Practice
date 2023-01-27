@@ -3,7 +3,10 @@ using namespace std;
 #define ll long long
 
 int minCostClimbingStairs(vector<int> &cost){
-
+    if(cost.size() == 2) return min(cost[0], cost[1]);
+    int idx = -1; 
+    int total = 0;
+    while(idx + 1  || idx + 2)
 }
 
 

@@ -1,40 +1,20 @@
 #include <bits/stdc++.h>
 using namespace std;
-#define ll long long
-string s;
-int nb, ns, nc;
-int pb, ps, pc;
-ll r;
-ll ans;
+long long n[10], i, m, S, q, l, h = (1LL << 41);
+string s, b("BSC");
 int main()
 {
-    cin >> s >> nb >> ns >> nc >> pb >> ps >> pc >> r;
-    ll cnt = 0;
-    for (int i = 0; i < s.size(); i++)
+    for (cin >> s; i < s.length(); n[b.find(s[i++])]++)
+        ;
+    for (i = 3; i < 10; cin >> n[i++])
+        ;
+    while (l + 1 < h)
     {
-        if (s[i] == 'B')
-            cnt += nb;
-        if (s[i] == 'S')
-            cnt += ns;
-        if (s[i] == 'C')
-            cnt += nc;
+        m = l + h >> 1;
+        for (S = i = 0; i < 3; i++)
+            if ((q = n[i] * m - n[3 + i]) > 0)
+                S += q * n[6 + i];
+        S > n[9] ? h = m : l = m;
     }
-    ll cost = 0;
-    for (int i = 0; i < s.size(); i++)
-    {
-        if (s[i] == 'B')
-            cost += pb;
-        if (s[i] == 'S')
-            cost += ps;
-        if (s[i] == 'C')
-            cost += pc;
-    }
-    if (cost > r)
-    {
-        cout << 0;
-        return 0;
-    }
-    ans = r / cost;
-    cout << min(ans, cnt);
-    return 0;
+    cout << l;
 }
