@@ -1,0 +1,2 @@
+Greedy heuristic path: 1 -> 2 -> 3 -> 4 -> 5 -> 6
+Greedy heuristic cost: 306
