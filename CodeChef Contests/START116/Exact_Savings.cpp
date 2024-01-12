@@ -1,32 +1,34 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int fun(int i, int k, int x, int z, vector<int> &v){
+const int N = 1e14+10;
+
+int fun(int i, int k, int x, int z, vector<int> &v, vector<vector<int>> &dp){
     if(i < 0){
-        if((k+z)%x) return (k+z)/x; 
-        return 1e6;
+        if((k+z)%x == 0) return (k+z)/x; 
+        return 1e18;
     }
+    if(dp[i][k] != -1) return dp[i][k];
     // not Take
-    int ans = fun(i-1, k, x, z, v); 
+    int ans = fun(i-1, k, x, z, v, dp); 
     // Take
-    ans = min(ans, fun(i-1, k+v[i], x, z, v));
-    return ans;
+    ans = min(ans, fun(i-1, k+v[i], x, z, v, dp));
+    return dp[i][k] = ans;
 }
 
 int main() {
 	// your code goes here
 	int t; 
-	cout << "hello";
 	cin >> t; 
 	while(t--){
 	    int n, x, z; 
 	    cin >> n >> x >> z; 
 	    vector<int> v(n);
 	    for(int i = 0; i < n; i++){
-			v.push_back();
 	        cin >> v[i]; 
 	    }
-	    int ans = fun(n-1, 0, x, z, v);
+	    vector<vector<int>> dp(n+1, vector<int>(1e18, -1));
+	    int ans = fun(n-1, 0, x, z, v, dp);
 	    cout << (ans == 1e6 ? -1 : ans) << endl;
 	}
 }
