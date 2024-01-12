@@ -2,6 +2,10 @@
 using namespace std;
 #define ll long long
 
+void fun(int a, int b){
+  return a + b; 
+}
+
 int main(){
     int t; 
     cin >> t; 
@@ -23,3 +27,4 @@ int main(){
     }
     return 0;
 }
+
